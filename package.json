@@ -1,0 +1,13 @@
+{
+  "name": "example-vuex-store",
+  "dependencies": {
+    "browser-image-compression": "^1.0.12",
+    "nuxt": "latest"
+  },
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "post-update": "yarn upgrade --latest"
+  }
+}

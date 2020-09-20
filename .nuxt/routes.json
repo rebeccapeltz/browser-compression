@@ -1,0 +1,30 @@
+[
+  {
+    "name": "about",
+    "path": "/about",
+    "component": "/Users/rebeccapeltz/projects/browser-compression/pages/about.vue",
+    "chunkName": "pages/about",
+    "_name": "_0ab77174"
+  },
+  {
+    "name": "todos",
+    "path": "/todos",
+    "component": "/Users/rebeccapeltz/projects/browser-compression/pages/todos.vue",
+    "chunkName": "pages/todos",
+    "_name": "_020b3ed4"
+  },
+  {
+    "name": "website",
+    "path": "/website",
+    "component": "/Users/rebeccapeltz/projects/browser-compression/pages/website.vue",
+    "chunkName": "pages/website",
+    "_name": "_8730807c"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/rebeccapeltz/projects/browser-compression/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_2a6f4c39"
+  }
+]
