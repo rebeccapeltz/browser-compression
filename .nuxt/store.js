@@ -21,8 +21,9 @@ let store = {};
 
   resolveStoreModules(require('../store/articles.js'), 'articles.js')
   resolveStoreModules(require('../store/articles/comments.js'), 'articles/comments.js')
-  resolveStoreModules(require('../store/stats/getter.js'), 'stats/getter.js')
+  resolveStoreModules(require('../store/stats/getters.js'), 'stats/getters.js')
   resolveStoreModules(require('../store/stats/mutations.js'), 'stats/mutations.js')
+  resolveStoreModules(require('../store/stats/state.js'), 'stats/state.js')
   resolveStoreModules(require('../store/todos/getters.js'), 'todos/getters.js')
   resolveStoreModules(require('../store/todos/mutations.js'), 'todos/mutations.js')
   resolveStoreModules(require('../store/todos/state.js'), 'todos/state.js')
@@ -36,8 +37,9 @@ let store = {};
       '../store/articles.js',
       '../store/index.js',
       '../store/articles/comments.js',
-      '../store/stats/getter.js',
+      '../store/stats/getters.js',
       '../store/stats/mutations.js',
+      '../store/stats/state.js',
       '../store/todos/getters.js',
       '../store/todos/mutations.js',
       '../store/todos/state.js',

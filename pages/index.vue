@@ -10,10 +10,25 @@
       <img height="200px" :src="compressedSrc" />
     </div>
 
+    <h4>Stats</h4>
+    <table class="stats">
+      <tr v-if="stats && stats.length > 0">
+        <th>Original File Size</th>
+        <th>Compressed File Size</th>
+        <th>Compressed File</th>
+      </tr>
+      <tr v-for="(stat, index) in stats" :key="index">
+        <td>{{ stat.data.original.toFixed(2) }}MB</td>
+        <td>{{ stat.data.compressed.toFixed(2) }}MB</td>
+        <td><img width="150" :src="stat.data.src" /></td>
+      </tr>
+    </table>
+  
+
     <br />
-    <button @click="increment">
+    <!-- <button @click="increment">
       {{ counter }}
-    </button>
+    </button> -->
     <br />
     <NuxtLink to="/about"> About </NuxtLink>
     <br />
@@ -37,19 +52,22 @@ export default {
   fetch({ store }) {
     store.commit("increment");
   },
+  computed: mapGetters({
+    stats: "stats/stats",
+  }),
   data: function () {
     return {
       originalSrc: undefined,
       compressedSrc: undefined,
     };
   },
-  computed: mapState(["counter"]),
+  // computed: mapState(["counter"]),
   methods: {
     increment() {
       this.$store.commit("increment");
     },
 
-    readFileAsText(inputFile) {
+    readAsDataURL(inputFile) {
       const fileReader = new FileReader();
       return new Promise((resolve, reject) => {
         fileReader.onerror = () => {
@@ -59,20 +77,18 @@ export default {
         fileReader.onloadend = () => {
           resolve(fileReader.result);
         };
-        fileReader.readAsText(inputFile);
+        fileReader.readAsDataURL(inputFile);
       });
     },
     async handleFileChange(event) {
       try {
-        const that = this;
-        // debugger;
         const imageFile = event.target.files[0];
 
         //add these stats to store
         const originalSize = imageFile.size / 1024 / 1024;
         console.log("originalFile instanceof Blob", imageFile instanceof Blob); // true
         console.log(`originalFile size ${originalSize} MB`);
-        this.originalSrc = await this.readFileAsText(imageFile);
+        this.originalSrc = await this.readAsDataURL(imageFile);
         // console.log(this.originalSrc);
 
         //compress
@@ -83,9 +99,21 @@ export default {
         };
         const compressedFile = await imageCompression(imageFile, options);
         const compressedSize = compressedFile.size / 1024 / 1024;
-        this.compressedSrc = await this.readFileAsText(compressedFile);
-        console.log(`compressedFile size ${compressedSize} MB`)
+        this.compressedSrc = await this.readAsDataURL(compressedFile);
+        console.log(`compressedFile size ${compressedSize} MB`);
 
+        // const data = {
+        //   original: originalSize,
+        //   compressed: compressedSize,
+        //   url:
+        //     "https://images.pexels.com/photos/5198585/pexels-photo-5198585.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        // };
+        const data = {
+          original: originalSize,
+          compressed: compressedSize,
+          src: this.compressedSrc,
+        };
+        this.$store.commit("stats/add", data);
       } catch (error) {
         console.log(error);
       }
@@ -103,3 +131,19 @@ export default {
   },
 };
 </script>
+<style scoped>
+table {
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+th,
+td {
+  border: 1px solid black;
+}
+table.stats {
+  text-align: center;
+  table-layout: auto;
+  width: 100%;
+}
+</style>
