@@ -103,7 +103,7 @@ This list of data accumulates as the user interacts with the app via the **Choos
 6. Contents of compressed file is converted to a URL using a local `readDataAsUrl` function so that it can be bound to an `img` DOM element
 7. The original and compressed files are rendered on the page for comparison.
   <img src="https://res.cloudinary.com/pictures77/image/upload/v1600718208/jam/image-compare-compression.png" alt="Original vs Compressed Image" width="320">
-8. Data (an object containing originalSize, compressedSize and compressedImage) is published to the Vuex store.
+8. Data (an object containing originalSize, compressedSize and compressedImage) is published to the Vuex store
 9. A table that renders the DOM is updated by the store and serves as a way to record experiment results.
   ![Experimental Results](https://res.cloudinary.com/pictures77/image/upload/v1600718283/jam/table-compare-compression.png)
 
