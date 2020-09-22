@@ -143,7 +143,9 @@ readAsDataURL(inputFile) {
 
 ### Summary of browser image data
 
-The image below shows the functions involved in this app and the data structures that are input and output.  The DOM image `src` uses the ascii base64 data.  The `input[type=file]` provides a `file` object.  The image compression function input and output are the `file` object.
+The chart below shows the functions involved in this app and the data structures that serve as input and output.  The DOM image `src` uses the ascii base64 data.  The `input[type=file]` provides a `file` object.  The image compression function input and output are the `file` object.
+
+Both the original image and the compressed image need to be processed by the `readAsDataURL` before they can be rendered on the web page.  The `imageCompression` function receives a `file` object and returns a new compressed `file` object.
 
 <img src="https://res.cloudinary.com/pictures77/image/upload/v1600792404/jam/browser-data-structures.png" alt="Browser image data structures" width="400">
 
