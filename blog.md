@@ -141,8 +141,14 @@ readAsDataURL(inputFile) {
   },
 ```
 
+### Summary of browser image data
 
-#### How to bind image file input objects to the DOM?
+The image below shows the functions involved in this app and the data structures that are input and output.  The DOM image `src` uses the ascii base64 data.  The `input[type=file]` provides a `file` object.  The image compression function input and output are the `file` object.
+
+![Browser image data structures](https://res.cloudinary.com/pictures77/image/upload/v1600792404/jam/browser-data-structures.png)
+
+
+### How to bind image file input objects to the DOM?
 
 We have set up two reactive data items in the `index.vue` data section.  Initially these are undefined and because the `img` tags use `v-if` based on the values of this data, neither the original, nor compressed image is rendered.  
 
