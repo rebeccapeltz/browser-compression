@@ -145,7 +145,8 @@ readAsDataURL(inputFile) {
 
 The image below shows the functions involved in this app and the data structures that are input and output.  The DOM image `src` uses the ascii base64 data.  The `input[type=file]` provides a `file` object.  The image compression function input and output are the `file` object.
 
-![Browser image data structures](https://res.cloudinary.com/pictures77/image/upload/v1600792404/jam/browser-data-structures.png)
+<img src="https://res.cloudinary.com/pictures77/image/upload/v1600792404/jam/browser-data-structures.png" alt="Browser image data structures" width="400">
+
 
 
 ### How to bind image file input objects to the DOM?
