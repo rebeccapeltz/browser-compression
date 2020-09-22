@@ -96,17 +96,17 @@ export default {
 This list of data accumulates as the user interacts with the app via the **Choose File**  button.  
 
 1. User selects a file to compress using the **Choose File** button
-1. The `change` event is triggered after the user selects a file.
-1. The `change` event handler extracts the file from the event and obtains original size
-1. Contents of original file is converted to a URL using a local `readDataAsUrl` function so that it can be bound to an `img` DOM element
-1. Compression is performed using the `browser-image-compression` library and a new file object is referenced as `compressedFile`
-1. Size of compress file is assessed and referenced as `compressedSize`
-1. Contents of compressed file is converted to a URL using a local `readDataAsUrl` function so that it can be bound to an `img` DOM element
-1. The original and compressed files are rendered on the page for comparison.
+2. The `change` event is triggered after the user selects a file.
+3. The `change` event handler extracts the file from the event and obtains original size
+4. Contents of original file is converted to a URL using a local `readDataAsUrl` function so that it can be bound to an `img` DOM element
+5. Compression is performed using the `browser-image-compression` library and a new file object is referenced as `compressedFile`
+6. Size of compress file is assessed and referenced as `compressedSize`
+7. Contents of compressed file is converted to a URL using a local `readDataAsUrl` function so that it can be bound to an `img` DOM element
+8. The original and compressed files are rendered on the page for comparison.
   <img src="https://res.cloudinary.com/pictures77/image/upload/v1600718208/jam/image-compare-compression.png" alt="Original vs Compressed Image" width="320">
-1. Data (an object containing originalSize, compressedSize and compressedImage) is published to the Vuex store.
-1. A table that renders the DOM is updated by the store and serves as a way to record experiment results.
-![Experimental Results](https://res.cloudinary.com/pictures77/image/upload/v1600718283/jam/table-compare-compression.png)
+9. Data (an object containing originalSize, compressedSize and compressedImage) is published to the Vuex store.
+10. A table that renders the DOM is updated by the store and serves as a way to record experiment results.
+  ![Experimental Results](https://res.cloudinary.com/pictures77/image/upload/v1600718283/jam/table-compare-compression.png)
 
 ## How is base64 image converted to a URL?
 
